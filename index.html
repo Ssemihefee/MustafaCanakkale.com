@@ -23,7 +23,7 @@
             position: relative;
         }
 
-        /* Arka plandaki kalpler için container */
+        /* Arka plandaki kalpler */
         .hearts-bg {
             position: absolute;
             top: 0;
@@ -37,7 +37,7 @@
 
         .heart {
             position: absolute;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.45);
             font-size: 20px;
             animation: floatUp 6s linear infinite;
         }
@@ -48,7 +48,7 @@
                 opacity: 0;
             }
             50% {
-                opacity: 0.8;
+                opacity: 0.9;
             }
             100% {
                 transform: translateY(-10vh) scale(1.2);
@@ -89,12 +89,10 @@
 
     <!-- Fotoğraf Alanı -->
     <div class="card">
-        <!-- Eğer tarayıcınız HEIC formatını açmazsa, fotoğrafı JPG yapıp burayı "abc.jpg" olarak güncelleyebilirsiniz -->
-        <img src="abc.heic" alt="Özel Fotoğraf">
+        <img src="IMG_4715.jpeg" alt="Fotoğraf">
     </div>
 
     <script>
-        // Arka plana otomatik rastgele kalpler ekleyen script
         const container = document.getElementById('heartsContainer');
         const heartSymbols = ['❤️', '💖', '💗', '💓', '💕', '💘'];
 
@@ -103,24 +101,20 @@
             heart.classList.add('heart');
             heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
             
-            // Rastgele konum ve boyutlar
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.fontSize = (Math.floor(Math.random() * 25) + 15) + 'px';
             
-            // Rastgele animasyon süresi
-            const duration = Math.random() * 3 + 3; // 3 ile 6 saniye arası
+            const duration = Math.random() * 3 + 3;
             heart.style.animationDuration = duration + 's';
             
             container.appendChild(heart);
 
-            // Animasyon bittiğinde DOM'dan temizle
             setTimeout(() => {
                 heart.remove();
             }, duration * 1000);
         }
 
-        // Sık aralıklarla kalp üret
-        setInterval(createHeart, 300);
+        setInterval(createHeart, 250);
     </script>
 </body>
 </html>
